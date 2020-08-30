@@ -1,18 +1,29 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="top">
+    <v-btn>start</v-btn>
   </div>
 </template>
 
-<script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
-export default {
-  name: 'Home',
-  components: {
-    HelloWorld
+<style scoped>
+  .top{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(20deg, blue, white);
+    height: 300px;
+    font-size: 200%;
   }
-}
-</script>
+  /* .top-context{
+    animation-name: blur;
+    animation-duration: 2s;
+  }
+
+  @keyframes blur {
+    0% {
+      filter: blur(30px);
+    }
+    100% {
+      filter: blur(0);
+    }
+  } */
+</style>
