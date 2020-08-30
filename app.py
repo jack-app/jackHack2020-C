@@ -15,7 +15,7 @@ def get_json_from_dictionary():
 @app.route('/questions', methods=['GET'])
 def get_quesion():
     queries = request.args
-    question = {"question": {"id": 1, "q": "aaa?", "ans": "yes", "end": False, "prediction": None}} # Question(queries)
+    question = {"question": {"id": 1, "q": "aaa?", "ans": "yes", "end": False, "prediction": None}}
     return jsonify(question)
 
 @app.route('/questions', methods=['POST'])
