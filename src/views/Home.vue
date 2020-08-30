@@ -1,44 +1,27 @@
 <template>
-  <div class="top">
-    <v-btn>start</v-btn>
-    <p>{{ question }}</p>
+  <div>
+    <div>
+      <v-img></v-img>
+    </div>
+    <div class="">
+      <h1>Jackinator</h1>
+    </div>
+    <div>
+      <h3>素直に答えてね</h3>
+    </div>
+    <div class="d-flex justify-center">
+      <v-btn @click="toQuestion">私にチャレンジ<br/><span>あなたの生まれ年を当ててみせます</span></v-btn>
+    </div>
   </div>
 </template>
-
 <script>
-import Question from '../models/question.js'
-
-export default {
-  data() {
-    return {
-      valid: true,
-      question: new Question(),
+export default{
+  methods: {
+    toQuestion(){
+      this.$router.push({ path: `/question/${1}` })
     }
   }
 }
 </script>
-
-
 <style scoped>
-  .top{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: linear-gradient(20deg, blue, white);
-    height: 300px;
-    font-size: 200%;
-  }
-  /* .top-context{
-    animation-name: blur;
-    animation-duration: 2s;
-  }
-
-  @keyframes blur {
-    0% {
-      filter: blur(30px);
-    }
-    100% {
-      filter: blur(0);
-    }
-  } */
 </style>
