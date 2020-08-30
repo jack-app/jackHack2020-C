@@ -1,29 +1,44 @@
 import axios from 'axios'
-import qs from 'qs'
+
+const url = 'http://localhost:5000/questions'
 
 export default class Question {
-  constructor(arg) {
+  constructor() {
     this.init()
-    this.fetch(arg)
+    this.fetch()
   }
 
-  fetch(arg){
+  fetch(){
 
-    const url = 'http://localhost:5000/questions';
+    // const params = sessionStorage.getItem('questions')
+    //
+    // const paramsSerializer = (params) => qs.stringify(params)
 
-    const params = arg
-
-    const paramsSerializer = (params) => qs.stringify(params);
-
-    axios.get(url, { params, paramsSerializer }).then( resp => {
+    axios.get(url).then( resp => {
       console.log(resp.data.question);
-      Object.assign(this, resp.data.question);
+      Object.assign(this, resp.data);
       console.log(this);
     } )
   }
 
-  init(){
-    this.id = null
-    this.q = ""
+  toPostedObject(answer){
+    var postedObject = {}
+    postedObject.question = this.question
+    postedObject.answer = answer
+    return postedObject
   }
+
+  cheackAnswer(answer){
+    return axios.post( url, this.toPostedObject(answer) )
+  }
+
+  init(){
+    this.question = ""
+  }
+
+  // save(question){
+  //   let questions = sessionStorage.getItem('questions')
+  //   questions.push(question)
+  //   sessionStorage.setItem('questions', questions);
+  // }
 }
