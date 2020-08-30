@@ -1,5 +1,18 @@
 version: '3'
 services:
+  appdb:
+    image: postgres
+    container_name: "db_container"
+    environment:
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
+      - POSTGRES_DB
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./postgres/initdb:/docker-entrypoint-initdb.d
+      - ./postgres/db_data:/var/lib/postgresql/data/
+
   flask:
     build:
       context: .
