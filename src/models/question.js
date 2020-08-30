@@ -1,13 +1,21 @@
 import axios from 'axios'
+import qs from 'qs'
 
 export default class Question {
-  constructor() {
+  constructor(arg) {
     this.init()
-    this.fetch()
+    this.fetch(arg)
   }
 
-  fetch(){
-    axios.get(`http://localhost:5000/questions`).then( resp => {
+  fetch(arg){
+
+    const url = 'http://localhost:5000/questions';
+
+    const params = arg
+
+    const paramsSerializer = (params) => qs.stringify(params);
+
+    axios.get(url, { params, paramsSerializer }).then( resp => {
       console.log(resp.data.question);
       Object.assign(this, resp.data.question);
       console.log(this);
@@ -17,8 +25,5 @@ export default class Question {
   init(){
     this.id = null
     this.q = ""
-    this.ans = null
-    this.end = false
-    this.prediction = null
   }
 }
