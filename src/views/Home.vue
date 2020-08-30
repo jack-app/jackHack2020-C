@@ -1,8 +1,23 @@
 <template>
   <div class="top">
     <v-btn>start</v-btn>
+    <p>{{ question }}</p>
   </div>
 </template>
+
+<script>
+import Question from '../models/question.js'
+
+export default {
+  data() {
+    return {
+      valid: true,
+      question: new Question(),
+    }
+  }
+}
+</script>
+
 
 <style scoped>
   .top{
