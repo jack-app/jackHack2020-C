@@ -1,6 +1,8 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 app.config['JSON_AS_ASCII'] = False
 
 @app.route('/', methods=['GET'])
@@ -13,7 +15,7 @@ def get_json_from_dictionary():
 @app.route('/questions', methods=['GET'])
 def get_quesion():
     queries = request.args
-    question = {"id": 1, "q": "aaa?", "ans": "yes", "end": False, "prediction": None} # Question(queries)
+    question = {"question": {"id": 1, "q": "aaa?", "ans": "yes", "end": False, "prediction": None}} # Question(queries)
     return jsonify(question)
 
 @app.route('/questions', methods=['POST'])

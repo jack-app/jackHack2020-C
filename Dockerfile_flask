@@ -5,3 +5,4 @@ RUN apt-get update -qq
 WORKDIR /usr/src/app
 
 RUN pip install flask
+RUN pip install flask-cors
