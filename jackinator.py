@@ -1,106 +1,109 @@
 import math
 
+import preprocessing
+
 class Thothnator:
     def __init__(self):
-        self.database = {"Spagetti":
-                             {"Yellow?":
-                                  [3,8],
-                              "Noodle?":
-                                  [1,8],
-                              "Japanese Food?":
-                                  [8,3],
-                              "Main Dish?":
-                                  [1,8],
-                              "Spicy?":
-                                  [6,2],
-                              "Is drink?":
-                                  [6,2],
-                              },
-                         "Sake":
-                             {"Yellow?":
-                                  [8,1],
-                              "Noodle?":
-                                  [8,1],
-                              "Japanese Food?":
-                                  [6,4],
-                              "Main Dish?":
-                                  [8,1],
-                              "Spicy?":
-                                  [6,3],
-                              "Is drink?":
-                                  [1,8],
-                              },
-                         "Coke":
-                             {"Yellow?":
-                                  [8,1],
-                              "Noodle?":
-                                  [8,1],
-                              "Japanese Food?":
-                                  [8,1],
-                              "Main Dish?":
-                                  [8,1],
-                              "Spicy?":
-                                  [8,1],
-                              "Is drink?":
-                                  [1,8],
-                              },
-                         "Hamburger":
-                             {"Yellow?":
-                                  [6,3],
-                              "Noodle?":
-                                  [8,1],
-                              "Japanese Food?":
-                                  [8,1],
-                              "Main Dish?":
-                                  [3,6],
-                              "Spicy?":
-                                  [8,1],
-                              "Is drink?":
-                                  [8,1],
-                              },
-                         "Pizza":
-                             {"Yellow?":
-                                  [7,2],
-                              "Noodle?":
-                                  [8,1],
-                              "Japanese Food?":
-                                  [8,1],
-                              "Main Dish?":
-                                  [1,8],
-                              "Spicy?":
-                                  [4,4],
-                              "Is drink?":
-                                  [8,1],
-                              },
-                         "Ramen":
-                             {"Yellow?":
-                                  [3,5],
-                              "Noodle?":
-                                  [1,8],
-                              "Japanese Food?":
-                                  [1,8],
-                              "Main Dish?":
-                                  [1,8],
-                              "Spicy?":
-                                  [4,4],
-                              "Is drink?":
-                                  [8,1],
-                              },
-                         "Curry":
-                             {"Yellow?":
-                                  [6,3],
-                              "Noodle?":
-                                  [8,1],
-                              "Japanese Food?":
-                                  [5,4],
-                              "Main Dish?":
-                                  [1,8],
-                              "Spicy?":
-                                  [1,8],
-                              "Is drink?":
-                                  [8,1],
-                              }
-                         }
+        self.database = preprocessing.preprocessing()
+        # self.database = {"Spagetti":
+        #                      {"Yellow?":
+        #                           [3,8],
+        #                       "Noodle?":
+        #                           [1,8],
+        #                       "Japanese Food?":
+        #                           [8,3],
+        #                       "Main Dish?":
+        #                           [1,8],
+        #                       "Spicy?":
+        #                           [6,2],
+        #                       "Is drink?":
+        #                           [6,2],
+        #                       },
+        #                  "Sake":
+        #                      {"Yellow?":
+        #                           [8,1],
+        #                       "Noodle?":
+        #                           [8,1],
+        #                       "Japanese Food?":
+        #                           [6,4],
+        #                       "Main Dish?":
+        #                           [8,1],
+        #                       "Spicy?":
+        #                           [6,3],
+        #                       "Is drink?":
+        #                           [1,8],
+        #                       },
+        #                  "Coke":
+        #                      {"Yellow?":
+        #                           [8,1],
+        #                       "Noodle?":
+        #                           [8,1],
+        #                       "Japanese Food?":
+        #                           [8,1],
+        #                       "Main Dish?":
+        #                           [8,1],
+        #                       "Spicy?":
+        #                           [8,1],
+        #                       "Is drink?":
+        #                           [1,8],
+        #                       },
+        #                  "Hamburger":
+        #                      {"Yellow?":
+        #                           [6,3],
+        #                       "Noodle?":
+        #                           [8,1],
+        #                       "Japanese Food?":
+        #                           [8,1],
+        #                       "Main Dish?":
+        #                           [3,6],
+        #                       "Spicy?":
+        #                           [8,1],
+        #                       "Is drink?":
+        #                           [8,1],
+        #                       },
+        #                  "Pizza":
+        #                      {"Yellow?":
+        #                           [7,2],
+        #                       "Noodle?":
+        #                           [8,1],
+        #                       "Japanese Food?":
+        #                           [8,1],
+        #                       "Main Dish?":
+        #                           [1,8],
+        #                       "Spicy?":
+        #                           [4,4],
+        #                       "Is drink?":
+        #                           [8,1],
+        #                       },
+        #                  "Ramen":
+        #                      {"Yellow?":
+        #                           [3,5],
+        #                       "Noodle?":
+        #                           [1,8],
+        #                       "Japanese Food?":
+        #                           [1,8],
+        #                       "Main Dish?":
+        #                           [1,8],
+        #                       "Spicy?":
+        #                           [4,4],
+        #                       "Is drink?":
+        #                           [8,1],
+        #                       },
+        #                  "Curry":
+        #                      {"Yellow?":
+        #                           [6,3],
+        #                       "Noodle?":
+        #                           [8,1],
+        #                       "Japanese Food?":
+        #                           [5,4],
+        #                       "Main Dish?":
+        #                           [1,8],
+        #                       "Spicy?":
+        #                           [1,8],
+        #                       "Is drink?":
+        #                           [8,1],
+        #                       }
+        #                  }
 
         self.p = {};
         #init p
