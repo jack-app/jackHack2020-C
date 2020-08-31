@@ -1,8 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import Question from '../views/Question.vue'
-import Result from '../views/Result.vue'
+import About from '../views/About'
 
 Vue.use(VueRouter)
 
@@ -13,15 +12,9 @@ Vue.use(VueRouter)
     component: Home
   },
   {
-    path: '/question/:id',
-    name: 'Question',
-    component: Question
-  },
-  {
-    path: '/result',
-    name: 'Result',
-    component: Result,
-    props: true
+    path: '/about',
+    name: 'About',
+    component: About
   }
 ]
 

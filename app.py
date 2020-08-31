@@ -6,6 +6,7 @@ from jackinator import Thothnator
 app = Flask(__name__)
 CORS(app)
 app.config['JSON_AS_ASCII'] = False
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 thothnator = Thothnator()
 

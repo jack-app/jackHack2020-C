@@ -1,14 +1,19 @@
 <template>
   <div id="app">
+    <header-component/>
       <router-view/>
+    <footer-component/>
   </div>
 </template>
-<script>
 
-</script>
-<style scoped>
-#app{
-  background-color: #9616AB;
-  height: 100%;
+<script>
+import HeaderComponent from './components/Header.vue'
+import FooterComponent from './components/Footer.vue'
+
+export default {
+  components: {
+    HeaderComponent,
+    FooterComponent
+  }
 }
-</style>
+</script>
