@@ -40,12 +40,14 @@ export default{
   },
   methods: {
     checkAnswer(answer) {
-      console.log(this.question)
-      axios.post( 'http://localhost:5000/questions', this.toPostedObject(answer) ).then( resp => {
+      const judge = answer==="Yes"? 1 : 0;
+      console.log(this.questionSentence)
+      axios.get( `http://localhost:5000/answers?question=${this.questionSentence}&answer=${judge}`).then( resp => {
         if ( resp.data.continue ) {
           this.$router.go({path: this.$router.currentRoute.path, force: true});
         } else {
-          this.$router.push({ path: `/result`, params: {result: resp.data.result} })
+          console.log(resp.data.result);
+          this.$router.push({ path: `/result${resp.data.result[0]}`})
         }
       } )
     },

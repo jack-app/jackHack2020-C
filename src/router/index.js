@@ -18,7 +18,7 @@ Vue.use(VueRouter)
     component: Question
   },
   {
-    path: '/result',
+    path: '/result/:year',
     name: 'Result',
     component: Result,
     props: true
