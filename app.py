@@ -25,11 +25,11 @@ def get_quesion():
 
     return jsonify(res)
 
-@app.route('/questions', methods=['POST'])
-def post_question():
+@app.route('/answers', methods=['GET'])
+def get_answer():
     # count = request.json('count')
-    question = request.json['question']
-    answer = request.json['answer']
+    question = request.args.get('question')
+    answer = int(request.args.get('answer'))
     thothnator.a_list.append(answer)
     thothnator.p = thothnator.updateP(thothnator.p, question, answer)
 
@@ -42,6 +42,24 @@ def post_question():
         res = {'continue': False, 'result': result}
 
     return jsonify(res)
+
+# @app.route('/questions', methods=['POST'])
+# def post_question():
+#     # count = request.json('count')
+#     question = request.json['question']
+#     answer = request.json['answer']
+#     thothnator.a_list.append(answer)
+#     thothnator.p = thothnator.updateP(thothnator.p, question, answer)
+
+#     if thothnator.isNeedContinueQ():
+#         result = ''
+#         res = {'continue': True, 'result': result}
+#     else:
+#         result = thothnator.getBestEstimate()
+#         thothnator.updateDatabase
+#         res = {'continue': False, 'result': result}
+
+#     return jsonify(res)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
