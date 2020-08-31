@@ -2,6 +2,8 @@
 
 ## Product setup
 ```
+mkdir postgres/db_data # データベースのデータ永続化用
+
 docker-compose build
 docker-compose up
 ```
