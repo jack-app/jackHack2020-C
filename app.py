@@ -6,6 +6,7 @@ from jackinator import Thothnator
 app = Flask(__name__)
 CORS(app)
 app.config['JSON_AS_ASCII'] = False
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 thothnator = Thothnator()
 
@@ -39,7 +40,7 @@ def post_question():
         result = thothnator.getBestEstimate()
         thothnator.updateDatabase
         res = {'continue': False, 'result': result}
-    
+
     return jsonify(res)
 
 if __name__ == '__main__':
